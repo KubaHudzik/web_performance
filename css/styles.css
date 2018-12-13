@@ -1,0 +1,154 @@
+@import url("./sprite.css");
+
+/* services */
+/*https://css-tricks.com/text-blocks-over-image/*/
+.services__service {
+    position: relative;
+
+    margin-bottom: 1em;
+    /*The image has a 16/9 ratio. Until the image has loaded
+  we need to reserve some space so the page won't reflow.
+  How to calculate the space (padding-bottom): 9/16*100 = 56.25
+  Another example: you have an image 400x250.
+  So if you want to calculate the space you do: 250/400*100 = 62.5*/
+    padding-bottom: 56.25%;
+    height: 0;
+    background-color: lightgrey;
+}
+
+.services__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.services__overlay span {
+    color: white;
+    font-weight: bold;
+    letter-spacing: -1px;
+    background: rgb(0, 0, 0); /* fallback color */
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+}
+
+@media (min-width: 46.875em) {
+    .services__overlay span {
+        font-size: 2rem;
+    }
+}
+
+/* testimonials */
+.testimonial_quote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C" "\201D" "\2018" "\2019";
+    line-height: 1.3em;
+}
+
+.testimonial_quote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+    display: block;
+}
+
+.testimonial_quote p {
+    display: inline;
+}
+
+/* desert animation */
+.desert .desert__animation {
+    background-image: url("../images/desert.jpg");
+    overflow: hidden;
+    max-width: 400px;
+    height: 484px;
+    margin: 20px auto;
+    position: relative;
+    animation: desertMove 8s linear infinite;
+}
+
+@keyframes desertMove {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: -800px 0%;
+    }
+}
+
+.desert__tumbleweed {
+    width: 50px;
+    height: 56px;
+    background-image: url("../images/tumbleweed.png");
+    position: absolute;
+    top: 400px;
+    right: -50px;
+    z-index: 2;
+    animation: tumbleweed 5s ease-in 0s infinite;
+}
+
+.desert__tumbleweed--variant1 {
+    top: 340px;
+    right: -100px;
+    animation-duration: 4s;
+}
+
+.desert__tumbleweed--variant2 {
+    top: 300px;
+    right: -90px;
+    animation-duration: 6s;
+}
+
+.desert__tumbleweed--variant3 {
+    top: 400px;
+    right: -80px;
+    animation-duration: 5s;
+}
+
+.desert__tumbleweed--variant4 {
+    top: 370px;
+    right: -60px;
+    animation-duration: 6.5s;
+}
+
+@keyframes tumbleweed {
+    0% {
+    }
+    100% {
+        right: 400px;
+        transform: rotate(-1080deg);
+    }
+}
+
+/* footer */
+.footer {
+    padding: .5em;
+
+    background-color: rgba(138, 9, 23, .9);
+}
+
+.footer__text {
+    color: white;
+
+    font-size: .75em;
+    text-align: center;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 0 16px;
+}
+
+.actions__action a {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
